@@ -21,7 +21,7 @@ author: Mads Hansen And Victor Gustavsen
 
 navbar-links:
   Data1      : 
-    - Energy: ""
+    - Energy: "/Data/Energy/Markdown/Energy data"
     - Weather observatioos: ""
     - Weater forecasts: ""
   univariate timeseries:
