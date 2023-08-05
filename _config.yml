@@ -20,7 +20,7 @@ author: Mads Hansen And Victor Gustavsen
 ###############################################
 
 navbar-links:
-  Data (Energy and weather): 
+  Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy data"
     - Weather observatioos: ""
     - Weater forecasts: ""
@@ -32,7 +32,7 @@ navbar-links:
   Multivariate timeseries:
     - Regression: ""
     - Convolutional Neural Network: ""
-  Author's home: ""
+  Authors: ""
 
 ################
 # --- Logo --- #
