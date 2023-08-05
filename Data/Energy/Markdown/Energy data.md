@@ -194,7 +194,7 @@ Data.tail()
 
 
 
-Der kan her ses de sidste 5 observationer af det 319726 observationer store dataset, dog er der 2 observationer for hver tidspunkt, dette skyldes at der en observation for hvert elnetværk (DK1 og DK2) Disse kan nu summeres for at få forbrug og produktion for hele danmark for hvert time fra 2005-03-25 23:00:00 til 2023-04-10 00:00:00 og skære alle andre variable fra end `HourDK` og `GrossConsumptionMWh`.
+Here you can see the last 5 observations of the dataset, which contains 319726 observations. However, there are 2 observations for each time point because there is one observation for each electricity network (DK1 and DK2). These can now be summed to get the consumption for all of Denmark for every hour from 2005-03-25 23:00:00 to 2023-04-10 00:00:00, and cut off all other variables except HourDK and GrossConsumptionMWh.
 
 <div>
 <table border="1" class="dataframe">
@@ -266,11 +266,11 @@ Der kan her ses de sidste 5 observationer af det 319726 observationer store data
 <p>159845 rows × 2 columns</p>
 </div>
 
-vi kan nu tage et nærmere kig på energi dataen ved at plotte det:
+We can now take a closer look at the energy data by plotting it:
 
 ![png](output_6_0.png)
     
-Det kan være svært at se noget ud over at der er en årlig sæson i dataen hvor forbruget stiger om vinteren og falder om sommeren. lad os tage et nærmere kig på et år, en måend, en uge og en dag.
+It may be difficult to see anything beyond the fact that there is an annual season in the data where consumption rises in the winter and falls in the summer. Let's take a closer look at a year, a month, a week, and a day:
 
 ![png](output_8_0.png)
         
