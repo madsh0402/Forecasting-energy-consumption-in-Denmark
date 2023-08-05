@@ -1116,3 +1116,7 @@ pre {
     display: inline-block;
   }
 }
+
+.dropdown-menu {
+    min-width: 200px; /* or whatever width you want */
+}
