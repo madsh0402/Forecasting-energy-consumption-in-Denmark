@@ -6,7 +6,7 @@ The energy data for this project has been collected by using the API from [Energ
 ```python
 import pandas as pd
 # Indlæsning af data
-Data = pd.read_csv("C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Data/Data fra energidataservice.dk/Production and Consumption - Settlement.csv")
+Data = pd.read_csv("Production and Consumption - Settlement.csv")
 
 # Konverter 'HourDK' til datetime format og sæt som index
 Data['HourDK'] = pd.to_datetime(Data['HourDK'])
@@ -15,19 +15,6 @@ Data.set_index('HourDK', inplace=True)
 Data.tail()
 ```
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -210,19 +197,6 @@ Data.tail()
 Der kan her ses de sidste 5 observationer af det 319726 observationer store dataset, dog er der 2 observationer for hver tidspunkt, dette skyldes at der en observation for hvert elnetværk (DK1 og DK2) Disse kan nu summeres for at få forbrug og produktion for hele danmark for hvert time fra 2005-03-25 23:00:00 til 2023-04-10 00:00:00 og skære alle andre variable fra end `HourDK` og `GrossConsumptionMWh`.
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
