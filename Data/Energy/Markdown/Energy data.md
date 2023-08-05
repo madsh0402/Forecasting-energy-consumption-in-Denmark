@@ -14,10 +14,6 @@ Data.set_index('HourDK', inplace=True)
 
 Data.tail()
 ```
-
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -213,34 +209,6 @@ Data.tail()
 
 Der kan her ses de sidste 5 observationer af det 319726 observationer store dataset, dog er der 2 observationer for hver tidspunkt, dette skyldes at der en observation for hvert elnetværk (DK1 og DK2) Disse kan nu summeres for at få forbrug og produktion for hele danmark for hvert time fra 2005-03-25 23:00:00 til 2023-04-10 00:00:00 og skære alle andre variable fra end `HourDK` og `GrossConsumptionMWh`.
 
-
-```python
-# Reset index
-Data.reset_index(inplace=True)
-
-# Select only the necessary columns
-Energy_Data = Data[['HourDK', 'PriceArea', 'GrossConsumptionMWh']]
-
-# Convert 'HourDK' to datetime format and set it as index
-Energy_Data['HourDK'] = pd.to_datetime(Energy_Data['HourDK'])
-Energy_Data.set_index('HourDK', inplace=True)
-
-# Group by 'HourDK' and sum 'GrossConsumptionMWh' for each hour
-Energy_Data = Energy_Data.groupby('HourDK')['GrossConsumptionMWh'].sum().reset_index()
-Energy_Data
-```
-
-    C:\Users\madsh\AppData\Local\Temp\ipykernel_9972\4155592605.py:8: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      Energy_Data['HourDK'] = pd.to_datetime(Energy_Data['HourDK'])
-    
-
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -324,102 +292,17 @@ Energy_Data
 <p>159845 rows × 2 columns</p>
 </div>
 
+vi kan nu tage et nærmere kig på energi dataen ved at plotte det:
 
-
-vi kan nu tage et nærmere kig på energi dataen:
-
-
-```python
-import matplotlib.pyplot as plt
-
-# Plotting
-plt.figure(figsize=(10,6))
-plt.plot(Energy_Data['HourDK'], Energy_Data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over Time')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-```
-
-
-    
 ![png](output_6_0.png)
     
-
-
 Det kan være svært at se noget ud over at der er en årlig sæson i dataen hvor forbruget stiger om vinteren og falder om sommeren. lad os tage et nærmere kig på et år, en måend, en uge og en dag.
 
-
-```python
-# Import necessary libraries
-import matplotlib.pyplot as plt
-
-# Year
-year_data = Energy_Data[Energy_Data['HourDK'].dt.year == 2022]
-plt.figure(figsize=(10,6))
-plt.plot(year_data['HourDK'], year_data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over Year 2022')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-
-# Month
-month_data = Energy_Data[(Energy_Data['HourDK'].dt.year == 2022) & (Energy_Data['HourDK'].dt.month == 6)]
-plt.figure(figsize=(10,6))
-plt.plot(month_data['HourDK'], month_data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over June 2022')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-
-# Week
-week_data = Energy_Data[(Energy_Data['HourDK'].dt.year == 2022) & (Energy_Data['HourDK'].dt.week == 24)]
-plt.figure(figsize=(10,6))
-plt.plot(week_data['HourDK'], week_data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over Week 24 of 2022')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-
-# Day
-day_data = Energy_Data[(Energy_Data['HourDK'].dt.year == 2022) & (Energy_Data['HourDK'].dt.month == 6) & (Energy_Data['HourDK'].dt.day == 15)]
-plt.figure(figsize=(10,6))
-plt.plot(day_data['HourDK'], day_data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over June 15, 2022')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-```
-
-
-    
 ![png](output_8_0.png)
-    
-
-
-
-    
+        
 ![png](output_8_1.png)
-    
 
-
-    C:\Users\madsh\AppData\Local\Temp\ipykernel_9972\150507758.py:23: FutureWarning: Series.dt.weekofyear and Series.dt.week have been deprecated. Please use Series.dt.isocalendar().week instead.
-      week_data = Energy_Data[(Energy_Data['HourDK'].dt.year == 2022) & (Energy_Data['HourDK'].dt.week == 24)]
-    
-
-
-    
 ![png](output_8_3.png)
-    
-
-
-
-    
+        
 ![png](output_8_4.png)
     
-
-
-
-```python
-
-```
