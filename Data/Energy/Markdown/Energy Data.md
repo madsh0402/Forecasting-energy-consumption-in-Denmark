@@ -19,19 +19,6 @@ Data.tail()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -209,53 +196,8 @@ Data.tail()
 <p>5 rows × 26 columns</p>
 </div>
 
-
-
 Here you can see the last 5 observations of the dataset, which contains 319726 observations. However, there are 2 observations for each time point because there is one observation for each electricity network (DK1 and DK2). These can now be summed to get the consumption for all of Denmark for every hour from 2005-03-25 23:00:00 to 2023-04-10 00:00:00, and cut off all other variables except `HourDK` and `GrossConsumptionMWh`.
-
-
-```python
-# Reset index
-Data.reset_index(inplace=True)
-
-# Select only the necessary columns
-Energy_Data = Data[['HourDK', 'PriceArea', 'GrossConsumptionMWh']]
-
-# Convert 'HourDK' to datetime format and set it as index
-Energy_Data['HourDK'] = pd.to_datetime(Energy_Data['HourDK'])
-Energy_Data.set_index('HourDK', inplace=True)
-
-# Group by 'HourDK' and sum 'GrossConsumptionMWh' for each hour
-Energy_Data = Energy_Data.groupby('HourDK')['GrossConsumptionMWh'].sum().reset_index()
-
-Energy_Data
-```
-
-    C:\Users\madsh\AppData\Local\Temp\ipykernel_9972\2933537269.py:8: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      Energy_Data['HourDK'] = pd.to_datetime(Energy_Data['HourDK'])
-    
-
-
-
-
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -325,126 +267,13 @@ Energy_Data
 <p>159845 rows × 2 columns</p>
 </div>
 
-
-
 We can now take a closer look at the energy data by plotting it:
-
-
-```python
-import matplotlib.pyplot as plt
-
-# Plotting
-plt.figure(figsize=(10,6))
-plt.plot(Energy_Data['HourDK'], Energy_Data['GrossConsumptionMWh'])
-plt.title('Gross Consumption Over Time')
-plt.xlabel('Date')
-plt.ylabel('Gross Consumption (MWh)')
-plt.show()
-```
-
-
     
 ![png](output_6_0.png)
     
-
-
 It may be difficult to see anything beyond the fact that there is an annual season in the data where consumption rises in the winter and falls in the summer. Let's take a closer look at a year, a month, a week, and a day:
-
-
-```python
-# Zooming time series chart
-# ==============================================================================
-
-zoom = ('2022-01-01 00:00:00','2022-12-31 23:00:00')
-fig = plt.figure(figsize=(15, 10))
-grid = plt.GridSpec(nrows=8, ncols=1, hspace=0.6, wspace=0)
-main_ax = fig.add_subplot(grid[1:3, :])
-zoom_ax = fig.add_subplot(grid[4:, :])
-Energy_Data.GrossConsumptionMWh.plot(ax=main_ax, c='black', alpha=0.5, linewidth=0.5)
-min_y = min(Energy_Data.GrossConsumptionMWh)
-max_y = max(Energy_Data.GrossConsumptionMWh)
-main_ax.fill_between(zoom, min_y, max_y, facecolor='blue', alpha=0.5, zorder=0)
-main_ax.set_xlabel('')
-Energy_Data.loc[zoom[0]: zoom[1]].GrossConsumptionMWh.plot(ax=zoom_ax, color='blue', linewidth=1)
-main_ax.set_title(f'Electricity consumption:', fontsize=18)
-zoom_ax.set_title(f'Electricity consumption 2022:', fontsize=18)
-zoom_ax.set_xlabel('')
-plt.subplots_adjust(hspace=1)
-
-zoom = ('2022-08-01 00:00:00','2022-08-31 23:00:00')
-fig = plt.figure(figsize=(15, 10))
-grid = plt.GridSpec(nrows=8, ncols=1, hspace=0.6, wspace=0)
-main_ax = fig.add_subplot(grid[1:3, :])
-zoom_ax = fig.add_subplot(grid[4:, :])
-Energy_Data.GrossConsumptionMWh.plot(ax=main_ax, c='black', alpha=0.5, linewidth=0.5)
-min_y = min(Energy_Data.GrossConsumptionMWh)
-max_y = max(Energy_Data.GrossConsumptionMWh)
-main_ax.fill_between(zoom, min_y, max_y, facecolor='blue', alpha=0.5, zorder=0)
-main_ax.set_xlabel('')
-Energy_Data.loc[zoom[0]: zoom[1]].GrossConsumptionMWh.plot(ax=zoom_ax, color='blue', linewidth=1)
-main_ax.set_title(f'Electricity consumption:', fontsize=18)
-zoom_ax.set_title(f'Electricity consumption august 2022:', fontsize=18)
-zoom_ax.set_xlabel('')
-plt.subplots_adjust(hspace=1)
-
-zoom = ('2022-08-08 00:00:00','2022-08-14 23:00:00')
-fig = plt.figure(figsize=(15, 10))
-grid = plt.GridSpec(nrows=8, ncols=1, hspace=0.6, wspace=0)
-main_ax = fig.add_subplot(grid[1:3, :])
-zoom_ax = fig.add_subplot(grid[4:, :])
-Energy_Data.GrossConsumptionMWh.plot(ax=main_ax, c='black', alpha=0.5, linewidth=0.5)
-min_y = min(Energy_Data.GrossConsumptionMWh)
-max_y = max(Energy_Data.GrossConsumptionMWh)
-main_ax.fill_between(zoom, min_y, max_y, facecolor='blue', alpha=0.5, zorder=0)
-main_ax.set_xlabel('')
-Energy_Data.loc[zoom[0]: zoom[1]].GrossConsumptionMWh.plot(ax=zoom_ax, color='blue', linewidth=1)
-main_ax.set_title(f'Electricity consumption:', fontsize=18)
-zoom_ax.set_title(f'Electricity consumption 1 week in august 2022:', fontsize=18)
-zoom_ax.set_xlabel('')
-plt.subplots_adjust(hspace=1)
-
-zoom = ('2022-08-15 00:00:00','2022-08-15 23:00:00')
-fig = plt.figure(figsize=(15, 10))
-grid = plt.GridSpec(nrows=8, ncols=1, hspace=0.6, wspace=0)
-main_ax = fig.add_subplot(grid[1:3, :])
-zoom_ax = fig.add_subplot(grid[4:, :])
-Energy_Data.GrossConsumptionMWh.plot(ax=main_ax, c='black', alpha=0.5, linewidth=0.5)
-min_y = min(Energy_Data.GrossConsumptionMWh)
-max_y = max(Energy_Data.GrossConsumptionMWh)
-main_ax.fill_between(zoom, min_y, max_y, facecolor='blue', alpha=0.5, zorder=0)
-main_ax.set_xlabel('')
-Energy_Data.loc[zoom[0]: zoom[1]].GrossConsumptionMWh.plot(ax=zoom_ax, color='blue', linewidth=1)
-main_ax.set_title(f'Electricity consumption:', fontsize=18)
-zoom_ax.set_title(f'Electricity consumption 1 day in august 2022:', fontsize=18)
-zoom_ax.set_xlabel('')
-plt.subplots_adjust(hspace=1)
-```
-
-
-    
-![png](output_8_0.png)
-    
-
-
-
-    
+ 
+![png](output_8_0.png)  
 ![png](output_8_1.png)
-    
-
-
-
-    
 ![png](output_8_2.png)
-    
-
-
-
-    
 ![png](output_8_3.png)
-    
-
-
-
-```python
-
-```
