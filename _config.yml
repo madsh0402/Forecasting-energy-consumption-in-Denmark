@@ -29,7 +29,7 @@ navbar-links:
   Multivariate timeseries:
     - Regression: "https://beautifuljekyll.com"
     - Convolutional Neural Network: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Author's home: ""
 
 ################
 # --- Logo --- #
