@@ -22,13 +22,13 @@ author: Mads Hansen And Victor Gustavsen
 navbar-links:
   Data: "Data"
   univariate timeseries:
-    - Autoregression: "https://beautifuljekyll.com"
-    - Lasso/Ridge: "https://www.markdowntutorial.com/"
+    - Autoregression: ""
+    - Lasso/Ridge: ""
     - Convolutional Neural Network : ""
     - Rekurrent Neural Network/Long-Short term memory: ""
   Multivariate timeseries:
-    - Regression: "https://beautifuljekyll.com"
-    - Convolutional Neural Network: "https://www.markdowntutorial.com/"
+    - Regression: ""
+    - Convolutional Neural Network: ""
   Author's home: ""
 
 ################
