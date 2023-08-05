@@ -20,10 +20,15 @@ author: Mads Hansen And Victor Gustavsen
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Data: "Data"
+  univariate timeseries:
+    - Autoregression: "https://beautifuljekyll.com"
+    - Lasso/Ridge: "https://www.markdowntutorial.com/"
+    - Convolutional Neural Network : ""
+    - Rekurrent Neural Network/Long-Short term memory: ""
+  Multivariate timeseries:
+    - Regression: "https://beautifuljekyll.com"
+    - Convolutional Neural Network: "https://www.markdowntutorial.com/"
   Author's home: "https://deanattali.com"
 
 ################
