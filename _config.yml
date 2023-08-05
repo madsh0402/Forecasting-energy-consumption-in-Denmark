@@ -20,7 +20,7 @@ author: Mads Hansen And Victor Gustavsen
 ###############################################
 
 navbar-links:
-  Data1      : 
+  Data (Energy and weather): 
     - Energy: "/Data/Energy/Markdown/Energy data"
     - Weather observatioos: ""
     - Weater forecasts: ""
