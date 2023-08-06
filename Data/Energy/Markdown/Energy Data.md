@@ -1,12 +1,12 @@
 # Energi Data
 
-The energy data for this project has been collected by using the API from [Energidataservice.dk](https://www.energidataservice.dk/). The exact dataset in question can be found [here](https://www.energidataservice.dk/tso-electricity/ProductionConsumptionSettlement) or downloaded from the github repository [here](https://github.com/madsh0402/Forecasting-energy-consumption-in-Denmark/tree/master/Data/Energy)
+The energy data for this project has been collected by using the API from [Energidataservice.dk](https://www.energidataservice.dk/). The exact dataset in question can be found [here](https://www.energidataservice.dk/tso-electricity/ProductionConsumptionSettlement) or downloaded from our github repository [here](https://github.com/madsh0402/Forecasting-energy-consumption-in-Denmark/tree/master/Data/Energy)
 
 
 ```python
 import pandas as pd
 # Indlæsning af data
-Data = pd.read_csv("C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Data/Data fra energidataservice.dk/Production and Consumption - Settlement.csv")
+Data = pd.read_csv("Production and Consumption - Settlement.csv")
 
 # Konverter 'HourDK' til datetime format og sæt som index
 Data['HourDK'] = pd.to_datetime(Data['HourDK'])
@@ -14,9 +14,6 @@ Data.set_index('HourDK', inplace=True)
 
 Data.tail()
 ```
-
-
-
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -195,7 +192,10 @@ Data.tail()
 <p>5 rows × 26 columns</p>
 </div>
 
-Here you can see the last 5 observations of the dataset, which contains 319726 observations. However, there are 2 observations for each time point because there is one observation for each electricity network (DK1 and DK2). These can now be summed to get the consumption for all of Denmark for every hour from 2005-03-25 23:00:00 to 2023-04-10 00:00:00, and cut off all other variables except `HourDK` and `GrossConsumptionMWh`.
+
+
+Here you can see the last 5 observations of the dataset, which contains 319726 observations. However, there are 2 observations for each time point because there is one observation for each electricity network (DK1 and DK2). These can now be summed to get the consumption for all of Denmark for every hour from 2005-03-25 23:00:00 to 2023-04-10 00:00:00, and cut off all other variables except HourDK and GrossConsumptionMWh.
+
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -267,12 +267,16 @@ Here you can see the last 5 observations of the dataset, which contains 319726 o
 </div>
 
 We can now take a closer look at the energy data by plotting it:
-    
+
 ![png](output_6_0.png)
     
 It may be difficult to see anything beyond the fact that there is an annual season in the data where consumption rises in the winter and falls in the summer. Let's take a closer look at a year, a month, a week, and a day:
- 
-![png](output_8_0.png)  
+
+![png](output_8_0.png)
+        
 ![png](output_8_1.png)
-![png](output_8_2.png)
+
 ![png](output_8_3.png)
+        
+![png](output_8_4.png)
+    
