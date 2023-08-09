@@ -267,11 +267,32 @@ Here you can see the last 5 observations of the dataset, which contains 319726 o
 
 We can now take a closer look at the energy data by plotting it:
 
+## Plotting the timeseries
+
 ![png](output_6_0.png)
 
 It may be difficult to see anything beyond the fact that there is an annual season in the data where consumption rises in the winter and falls in the summer. Let's take a closer look at a year, a month, a week, and a day:
 
-![png](output_8_0.png)  
+![png](output_8_0.png)
+
+Here we can closer see the annual seasonality.
+
 ![png](output_8_1.png)
+
+Here we can see the weekly seasonality where we can see that the energy consumption falls in the weekends.
+
 ![png](output_8_2.png)
+
+Zoomed into a week of the timeseries it is even more apparent how big the difference is between weekday and weekend.
+
 ![png](output_8_3.png)
+Zoomed into a single day the daily seasonality becomes apparent.
+
+lets take a clsoer look into this seasonality with some boxplots.
+
+## seasonality
+![png](boxplot monthly.png)
+
+![png](boxplot weekly.png)
+
+![png](boxplot daily.png)
