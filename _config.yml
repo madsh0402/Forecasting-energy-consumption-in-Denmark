@@ -23,7 +23,7 @@ navbar-links:
   Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy Data"
     - Weather observatioos: 
-    - Weater forecasts: 
+    - Weather forecasts: 
   univariate timeseries:
     - Autoregression: 
     - Lasso/Ridge: 
