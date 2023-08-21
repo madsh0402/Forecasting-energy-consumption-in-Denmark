@@ -1,5 +1,5 @@
 # Energy Data
-The energy data for this project has been collected by using the API from [Energidataservice.dk](https://www.energidataservice.dk/). The exact dataset in question can be found [here](https://www.energidataservice.dk/tso-electricity/ProductionConsumptionSettlement) or downloaded from my github repository [here](https://github.com/madsh0402/Forecasting-energy-consumption-in-Denmark/tree/master/Data/Energy)
+The energy data for this project has been collected by using the API from [Energidataservice.dk](https://www.energidataservice.dk/). The exact dataset in question can be found [here](https://www.energidataservice.dk/tso-electricity/ProductionConsumptionSettlement) or downloaded from my github repository [here](https://github.com/madsh0402/Forecasting-energy-consumption-in-Denmark/tree/master/Data/Energy).
 
 
 ```python
@@ -288,7 +288,7 @@ Zoomed into a week of the timeseries it is even more apparent how big the differ
 ![png](output_8_3.png)
 Zoomed into a single day the daily seasonality becomes apparent.
 
-lets take a clsoer look into this seasonality with some boxplots.
+lets take a closer look into this seasonality with some boxplots.
 
 ## seasonality
 ![png](boxplot monthly.png)
