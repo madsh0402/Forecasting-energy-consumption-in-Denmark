@@ -22,17 +22,17 @@ author: Mads Hansen And Victor Gustavsen
 navbar-links:
   Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy Data"
-    - Weather observatioos: "/Data/Energy/Weather observations/Energy Data"
-    - Weather forecasts: 
+    - Weather observatioos: "/Data/Weather observations/Tempature data"
+    - Weather forecasts: "404"
   univariate timeseries:
-    - Autoregression: 
-    - Lasso/Ridge: 
-    - Convolutional Neural Network : 
-    - Rekurrent Neural Network/Long-Short term memory: 
+    - Autoregression: "404"
+    - Lasso/Ridge: "404"
+    - Convolutional Neural Network: "404"
+    - Rekurrent Neural Network/Long-Short term memory: "404"
   Multivariate timeseries:
-    - Regression: 
-    - Convolutional Neural Network: 
-  Authors: 
+    - Regression: "404"
+    - Convolutional Neural Network: "404"
+  Authors: "404"
 
 ################
 # --- Logo --- #
