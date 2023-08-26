@@ -24,7 +24,7 @@ from sklearn.metrics import silhouette_score
 import warnings
 warnings.filterwarnings('ignore')
 ```
-
+ 
 
 ```python
 # Read the combined data for analysis
