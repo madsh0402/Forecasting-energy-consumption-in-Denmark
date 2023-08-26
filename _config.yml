@@ -23,15 +23,15 @@ navbar-links:
   Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy Data"
     - Weather observatioos: "/Data/Weather observations/Tempature data"
-    - Weather forecasts: 
+    - Weather forecasts: "404"
   univariate timeseries:
-    - Autoregression: 
-    - Lasso/Ridge: 
-    - Convolutional Neural Network : 
-    - Rekurrent Neural Network/Long-Short term memory: 
+    - Autoregression: "404"
+    - Lasso/Ridge: "404"
+    - Convolutional Neural Network: "404"
+    - Rekurrent Neural Network/Long-Short term memory: "404"
   Multivariate timeseries:
-    - Regression: 
-    - Convolutional Neural Network: 
+    - Regression: "404"
+    - Convolutional Neural Network: "404"
   Authors: 
 
 ################
