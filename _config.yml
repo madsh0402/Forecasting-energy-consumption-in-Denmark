@@ -22,8 +22,8 @@ author: Mads Hansen And Victor Gustavsen
 navbar-links:
   Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy Data"
-    - Weather observatioos: 
-    - Weater forecasts: 
+    - Weather observatioos: "/Data/Energy/Weather observations/Energy Data"
+    - Weather forecasts: 
   univariate timeseries:
     - Autoregression: 
     - Lasso/Ridge: 
