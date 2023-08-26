@@ -18,12 +18,12 @@ author: Mads Hansen And Victor Gustavsen
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
-
+#Data\Weather forecasts\Markdown\Historical forecasts data
 navbar-links:
   Data (Energy & weather): 
     - Energy: "/Data/Energy/Markdown/Energy Data"
     - Weather observatioos: "/Data/Weather observations/Tempature data"
-    - Weather forecasts: "404"
+    - Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
   univariate timeseries:
     - Autoregression: "404"
     - Lasso/Ridge: "404"
