@@ -296,3 +296,5 @@ lets take a closer look into this seasonality with some boxplots.
 ![png](boxplot weekly.png)
 
 ![png](boxplot daily.png)
+
+As it can be seen in the plots above, the annual weekly and daily seasonality was not a coincidence for the timeseries plot we zoomed into, but continues througout the entire timeseries. this gives valuable infomration for when it comes to modelleing a prediction model to fit to the timeseries.
