@@ -1,5 +1,3 @@
-# Historical Forecasts Data
-
 ## Libraries
 
 
@@ -24,7 +22,7 @@ from sklearn.metrics import silhouette_score
 import warnings
 warnings.filterwarnings('ignore')
 ```
- 
+## Load data
 
 ```python
 # Read the combined data for analysis
