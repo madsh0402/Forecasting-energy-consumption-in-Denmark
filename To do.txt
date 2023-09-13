@@ -1,0 +1,4 @@
+1. Skær OLS anderledes så at den kun indeholder faktisk OLS 
+2. lav en Combine data side på website og et endeligt csv fil
+3. Lav en Random Forrest
+4. Lav en OLS og en Random Forrest side på website.
