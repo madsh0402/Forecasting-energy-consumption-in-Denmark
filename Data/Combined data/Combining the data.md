@@ -770,7 +770,7 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-    Interpolated combined data:
+Interpolated combined data:
     
 
 
@@ -840,7 +840,7 @@ display(combined_daily_flagged_df.head())
 
 
     
-    Flagged combined data:
+Flagged combined data:
     
 
 
@@ -944,7 +944,7 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-    Interpolated combined data:
+Interpolated combined data:
     
 
 
@@ -1026,7 +1026,7 @@ display(combined_daily_flagged_df.head())
 
 
     
-    Flagged combined data:
+Flagged combined data:
     
 
 
@@ -1137,7 +1137,7 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-    Interpolated combined data:
+Interpolated combined data:
     
 
 
@@ -1225,7 +1225,7 @@ display(combined_daily_flagged_df.head())
 
 
     
-    Flagged combined data:
+Flagged combined data:
     
 
 
@@ -1375,7 +1375,7 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-    Interpolated combined data:
+Interpolated combined data:
     
 
 
@@ -1548,7 +1548,7 @@ display(combined_daily_flagged_df.head())
 
 
     
-    Flagged combined data:
+Flagged combined data:
     
 
 
@@ -1736,7 +1736,7 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.tail())
 ```
 
-    Interpolated combined data:
+Interpolated combined data:
     
 
 
@@ -1909,7 +1909,7 @@ display(combined_daily_flagged_df.tail())
 
 
     
-    Flagged combined data:
+Flagged combined data:
     
 
 
@@ -2090,9 +2090,4 @@ combined_daily_interpolation_df.to_csv('combined_daily_interpolation.csv', index
 
 # Export combined_daily_flagged_df to a CSV file
 combined_daily_flagged_df.to_csv('combined_daily_flagged.csv', index=False)
-```
-
-
-```python
-
 ```
