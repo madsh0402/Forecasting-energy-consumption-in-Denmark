@@ -47,7 +47,7 @@ Let's get started.
 
 ```python
 # Load the electricity consumption dataset
-consumption_filepath = 'C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Forecasting-energy-consumption-in-Denmark/Data/Energy/Production and Consumption - Settlement.csv'
+consumption_filepath = '/Data/Energy/Production and Consumption - Settlement.csv'
 consumption_df = pd.read_csv(consumption_filepath)
 
 # Display the electricity consumption DataFrame
@@ -483,7 +483,7 @@ Now that the energy data has been prepared for integration into a combined datas
 
 ```python
 # Load the weather forecast dataset
-weather_filepath = 'C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Forecasting-energy-consumption-in-Denmark/Data/Weather forecasts/combined_forecasts_2005-2023.csv'
+weather_filepath = '/Data/Weather forecasts/combined_forecasts_2005-2023.csv'
 weather_df = pd.read_csv(weather_filepath)
 
 # Display the weather forecast DataFrame
