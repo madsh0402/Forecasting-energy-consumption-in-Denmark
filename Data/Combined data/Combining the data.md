@@ -56,7 +56,7 @@ display(consumption_df.head())
 ```
 
 Electricity Consumption Data:
-    
+
 
 
 <div>
@@ -320,7 +320,7 @@ print(f"Number of missing values before interpolation: {missing_before}")
 ```
 
     Number of missing values before interpolation: 1531
-    
+
 
 
 ```python
@@ -349,11 +349,11 @@ print(f"\nNumber of missing values after interpolation: {missing_after}")
     161373 2023-05-30 21:00:00          3655.639568
     161374 2023-05-30 22:00:00          3663.715933
     161375 2023-05-30 23:00:00          3308.564927
-    
+
     [161376 rows x 2 columns]
-    
+
     Number of missing values after interpolation: 0
-    
+
 
 ### Flagging
 
@@ -383,9 +383,9 @@ print(f"Number of missing values before flagging: {missing_before}")
 
 # Create the 'flagged' column
 consumption_grouped_flagged_df['flagged'] = np.where(
-    (consumption_grouped_flagged_df['GrossConsumptionMWh'] < 1) | 
-    consumption_grouped_flagged_df['GrossConsumptionMWh'].isna(), 
-    1, 
+    (consumption_grouped_flagged_df['GrossConsumptionMWh'] < 1) |
+    consumption_grouped_flagged_df['GrossConsumptionMWh'].isna(),
+    1,
     0
 )
 
@@ -401,7 +401,7 @@ missing_after = consumption_grouped_flagged_df['GrossConsumptionMWh'].isna().sum
 print(f"\nNumber of missing values after Flagging: {missing_after}")
 print(f"Number of 'Flagged' observations: {sum(consumption_grouped_flagged_df['flagged'])}")
 ```
-
+```
     Number of missing values before flagging: 1531
                         HourDK  GrossConsumptionMWh  flagged
     0      2005-01-01 00:00:00          3370.256592        0
@@ -415,12 +415,12 @@ print(f"Number of 'Flagged' observations: {sum(consumption_grouped_flagged_df['f
     161373 2023-05-30 21:00:00          3655.639568        0
     161374 2023-05-30 22:00:00          3663.715933        0
     161375 2023-05-30 23:00:00          3308.564927        0
-    
+
     [161376 rows x 3 columns]
-    
+
     Number of missing values after Flagging: 1531
     Number of 'Flagged' observations: 1531
-    
+```
 
 ### Aggregating to daily
 
@@ -454,9 +454,9 @@ print(consumption_daily_flagged_df)
     6721 2023-05-28         80406.440116
     6722 2023-05-29         82766.586296
     6723 2023-05-30         89449.965396
-    
+
     [6724 rows x 2 columns]
-    
+
     Flagged energy data:
              HourDK  GrossConsumptionMWh  flagged
     0    2005-01-01         84760.194094        0
@@ -470,9 +470,9 @@ print(consumption_daily_flagged_df)
     6721 2023-05-28         80406.440116        0
     6722 2023-05-29         82766.586296        0
     6723 2023-05-30         89449.965396        0
-    
+
     [6724 rows x 3 columns]
-    
+
 
 Now that the energy data has been prepared for integration into a combined dataset, let's now prepare the weather forecast data.
 
@@ -492,7 +492,7 @@ display(weather_df.head())
 ```
 
 Weather Forecast Data:
-    
+
 
 
 <div>
@@ -748,7 +748,7 @@ Now that we have prepared the weather forecasting data, we can combine the two d
 
 ```python
 # Merge the daily aggregated electricity consumption data with the daily aggregated weather data
-combined_daily_interpolation_df = pd.merge(consumption_daily_df, weather_daily_with_step_df, 
+combined_daily_interpolation_df = pd.merge(consumption_daily_df, weather_daily_with_step_df,
                              left_on='HourDK', right_on='valid_time', how='inner')
 
 # Drop the redundant 'valid_time' column
@@ -759,7 +759,7 @@ print("Interpolated combined data:")
 display(combined_daily_interpolation_df.head())
 
 # Merge the daily aggregated electricity consumption data with the daily aggregated weather data
-combined_daily_flagged_df = pd.merge(consumption_daily_flagged_df, weather_daily_with_step_df, 
+combined_daily_flagged_df = pd.merge(consumption_daily_flagged_df, weather_daily_with_step_df,
                              left_on='HourDK', right_on='valid_time', how='inner')
 
 # Drop the redundant 'valid_time' column
@@ -771,7 +771,7 @@ display(combined_daily_flagged_df.head())
 ```
 
 Interpolated combined data:
-    
+
 
 
 <div>
@@ -839,9 +839,9 @@ Interpolated combined data:
 </div>
 
 
-    
+
 Flagged combined data:
-    
+
 
 
 <div>
@@ -945,7 +945,7 @@ display(combined_daily_flagged_df.head())
 ```
 
 Interpolated combined data:
-    
+
 
 
 <div>
@@ -1025,9 +1025,9 @@ Interpolated combined data:
 </div>
 
 
-    
+
 Flagged combined data:
-    
+
 
 
 <div>
@@ -1138,7 +1138,7 @@ display(combined_daily_flagged_df.head())
 ```
 
 Interpolated combined data:
-    
+
 
 
 <div>
@@ -1224,9 +1224,9 @@ Interpolated combined data:
 </div>
 
 
-    
+
 Flagged combined data:
-    
+
 
 
 <div>
@@ -1318,7 +1318,7 @@ Flagged combined data:
 </div>
 
 
-Now we are extremely close to have a final dataset. but there are a couple of steps left before we can save these dataframes as csv files and go nuts with putting the data into machine learning models. 
+Now we are extremely close to have a final dataset. but there are a couple of steps left before we can save these dataframes as csv files and go nuts with putting the data into machine learning models.
 
 First When working with machine learning models for forecasting, using dummy variables instead of categorical variables can offer several advantages. Here's why:
 
@@ -1376,7 +1376,7 @@ display(combined_daily_flagged_df.head())
 ```
 
 Interpolated combined data:
-    
+
 
 
 <div>
@@ -1547,9 +1547,9 @@ Interpolated combined data:
 </div>
 
 
-    
+
 Flagged combined data:
-    
+
 
 
 <div>
@@ -1737,7 +1737,7 @@ display(combined_daily_flagged_df.tail())
 ```
 
 Interpolated combined data:
-    
+
 
 
 <div>
@@ -1908,9 +1908,9 @@ Interpolated combined data:
 </div>
 
 
-    
+
 Flagged combined data:
-    
+
 
 
 <div>
