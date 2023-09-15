@@ -55,7 +55,7 @@ print("Electricity Consumption Data:")
 display(consumption_df.head())
 ```
 
-    Electricity Consumption Data:
+Electricity Consumption Data:
     
 
 
@@ -491,7 +491,7 @@ print("Weather Forecast Data:")
 display(weather_df.head())
 ```
 
-    Weather Forecast Data:
+Weather Forecast Data:
     
 
 
