@@ -24,6 +24,7 @@ navbar-links:
     - Energy: "/Data/Energy/Markdown/Energy Data"
     - Weather observatioos: "/Data/Weather observations/Tempature data"
     - Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
+    - Combine the Data: "/Data/Combined data/Combining the data"
   univariate timeseries:
     - Autoregression: "404"
     - Lasso/Ridge: "404"
