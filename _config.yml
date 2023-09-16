@@ -27,13 +27,12 @@ navbar-links:
     - Combine the Data: "/Data/Combined data/Combining the data"
   univariate timeseries:
     - Autoregression: "404"
-    - Lasso/Ridge: "404"
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
   Multivariate timeseries:
     OLS, Lasso & Ridge:
       - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS/OLS
-      - Lsso: "404"
+      - Lasso: "404"
       - Ridge: "404"
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
