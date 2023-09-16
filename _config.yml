@@ -30,10 +30,9 @@ navbar-links:
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
   Multivariate timeseries:
-    OLS, Lasso & Ridge:
-      - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS/OLS"
-      - Lasso: "404"
-      - Ridge: "404"
+    - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS/OLS"
+    - Lasso: "404"
+    - Ridge: "404"
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
   Authors: "404"
