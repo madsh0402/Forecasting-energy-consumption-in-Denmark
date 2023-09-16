@@ -47,7 +47,7 @@ Let's get started.
 
 ```python
 # Load the electricity consumption dataset
-consumption_filepath = '/Data/Energy/Production and Consumption - Settlement.csv'
+consumption_filepath = 'C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Forecasting-energy-consumption-in-Denmark/Data/Energy/Production and Consumption - Settlement.csv'
 consumption_df = pd.read_csv(consumption_filepath)
 
 # Display the electricity consumption DataFrame
@@ -55,8 +55,8 @@ print("Electricity Consumption Data:")
 display(consumption_df.head())
 ```
 
-Electricity Consumption Data:
-
+    Electricity Consumption Data:
+    
 
 
 <div>
@@ -314,27 +314,76 @@ consumption_grouped_df.set_index('HourDK', inplace=True)
 
 # Reindex the DataFrame to include all dates and set NaN for missing dates
 consumption_grouped_df = consumption_grouped_df.reindex(complete_date_range)
-
-missing_before = consumption_grouped_df['GrossConsumptionMWh'].isna().sum()
-print(f"Number of missing values before interpolation: {missing_before}")
 ```
-
-    Number of missing values before interpolation: 1531
-
 
 
 ```python
-# perform linear interpolation
-consumption_grouped_df = consumption_grouped_df.interpolate(method='linear')
-
 # Reset index to make 'HourDK' a column again
-consumption_grouped_df.reset_index(inplace=True)
-consumption_grouped_df.rename(columns={'index': 'HourDK'}, inplace=True)
-print(consumption_grouped_df)
+line_numbers = consumption_grouped_df.index[consumption_grouped_df['GrossConsumptionMWh'].isna()].tolist()
+selected_rows = consumption_grouped_df.loc[line_numbers]
+print(selected_rows)
+missing_before = consumption_grouped_df['GrossConsumptionMWh'].isna().sum()
+print(f"\nNumber of missing values before interpolation: {missing_before}")
+```
+
+                         GrossConsumptionMWh
+    2005-03-26 00:00:00                  NaN
+    2005-03-26 01:00:00                  NaN
+    2005-03-26 02:00:00                  NaN
+    2005-03-26 03:00:00                  NaN
+    2005-03-26 04:00:00                  NaN
+    ...                                  ...
+    2023-04-09 19:00:00                  NaN
+    2023-04-09 20:00:00                  NaN
+    2023-04-09 21:00:00                  NaN
+    2023-04-09 22:00:00                  NaN
+    2023-04-09 23:00:00                  NaN
+    
+    [1531 rows x 1 columns]
+    
+    Number of missing values before interpolation: 1531
+    
+
+
+```python
+# Perform linear interpolation
+combined_daily_interpolation_df = consumption_grouped_df.interpolate(method='linear')
+
+line_numbers = consumption_grouped_df.index[consumption_grouped_df['GrossConsumptionMWh'].isna()].tolist()
+selected_rows = combined_daily_interpolation_df.loc[line_numbers]
+print(selected_rows)
 
 # Count and print the number of missing values after interpolation
-missing_after = consumption_grouped_df['GrossConsumptionMWh'].isna().sum()
+missing_after = combined_daily_interpolation_df['GrossConsumptionMWh'].isna().sum()
 print(f"\nNumber of missing values after interpolation: {missing_after}")
+```
+
+                         GrossConsumptionMWh
+    2005-03-26 00:00:00          3219.117071
+    2005-03-26 01:00:00          3209.681163
+    2005-03-26 02:00:00          3200.245254
+    2005-03-26 03:00:00          3190.809346
+    2005-03-26 04:00:00          3181.373438
+    ...                                  ...
+    2023-04-09 19:00:00          2976.840017
+    2023-04-09 20:00:00          2974.051890
+    2023-04-09 21:00:00          2971.263764
+    2023-04-09 22:00:00          2968.475637
+    2023-04-09 23:00:00          2965.687510
+    
+    [1531 rows x 1 columns]
+    
+    Number of missing values after interpolation: 0
+    
+
+
+```python
+# Reset index to make 'HourDK' a column again
+combined_daily_interpolation_df.reset_index(inplace=True)
+combined_daily_interpolation_df.rename(columns={'index': 'HourDK'}, inplace=True)
+
+# Print the DataFrame to check the results
+print(combined_daily_interpolation_df)
 ```
 
                         HourDK  GrossConsumptionMWh
@@ -349,11 +398,9 @@ print(f"\nNumber of missing values after interpolation: {missing_after}")
     161373 2023-05-30 21:00:00          3655.639568
     161374 2023-05-30 22:00:00          3663.715933
     161375 2023-05-30 23:00:00          3308.564927
-
+    
     [161376 rows x 2 columns]
-
-    Number of missing values after interpolation: 0
-
+    
 
 ### Flagging
 
@@ -365,7 +412,7 @@ consumption_df = pd.read_csv(consumption_filepath)
 consumption_df['HourDK'] = pd.to_datetime(consumption_df['HourDK'])
 
 # Summing up GrossConsumptionMWh for both DK1 and DK2 for each time slot
-consumption_grouped_df['HourDK'] = pd.to_datetime(consumption_grouped_df['HourDK'])
+consumption_grouped_df['HourDK'] = pd.to_datetime(consumption_df['HourDK'])
 consumption_grouped_flagged_df = consumption_df.groupby('HourDK')['GrossConsumptionMWh'].sum().reset_index()
 
 # Generate a complete date range
@@ -383,9 +430,9 @@ print(f"Number of missing values before flagging: {missing_before}")
 
 # Create the 'flagged' column
 consumption_grouped_flagged_df['flagged'] = np.where(
-    (consumption_grouped_flagged_df['GrossConsumptionMWh'] < 1) |
-    consumption_grouped_flagged_df['GrossConsumptionMWh'].isna(),
-    1,
+    (consumption_grouped_flagged_df['GrossConsumptionMWh'] < 1) | 
+    consumption_grouped_flagged_df['GrossConsumptionMWh'].isna(), 
+    1, 
     0
 )
 
@@ -401,7 +448,7 @@ missing_after = consumption_grouped_flagged_df['GrossConsumptionMWh'].isna().sum
 print(f"\nNumber of missing values after Flagging: {missing_after}")
 print(f"Number of 'Flagged' observations: {sum(consumption_grouped_flagged_df['flagged'])}")
 ```
-```
+
     Number of missing values before flagging: 1531
                         HourDK  GrossConsumptionMWh  flagged
     0      2005-01-01 00:00:00          3370.256592        0
@@ -415,27 +462,27 @@ print(f"Number of 'Flagged' observations: {sum(consumption_grouped_flagged_df['f
     161373 2023-05-30 21:00:00          3655.639568        0
     161374 2023-05-30 22:00:00          3663.715933        0
     161375 2023-05-30 23:00:00          3308.564927        0
-
+    
     [161376 rows x 3 columns]
-
+    
     Number of missing values after Flagging: 1531
     Number of 'Flagged' observations: 1531
-```
+    
 
 ### Aggregating to daily
 
 
 ```python
 # Resample the interpolated electricity consumption data to daily level and sum up GrossConsumptionMWh
-consumption_daily_df = consumption_grouped_df.resample('D', on='HourDK').sum().reset_index()
+combined_daily_interpolation_df = combined_daily_interpolation_df.resample('D', on='HourDK').sum().reset_index()
 
 # Show the first few rows of the daily aggregated DataFrame
 print("Interpolated energy data:")
-print(consumption_daily_df)
+print(combined_daily_interpolation_df)
 
 # Resample the interpolated electricity consumption data to daily level and sum up GrossConsumptionMWh
 consumption_daily_flagged_df = consumption_grouped_flagged_df.resample('D', on='HourDK').agg({'GrossConsumptionMWh': 'sum', 'flagged': 'max'}).reset_index()
-consumption_daily_df['GrossConsumptionMWh'] = np.where(consumption_daily_flagged_df['flagged'] == 1, 0, consumption_daily_flagged_df['GrossConsumptionMWh'])
+consumption_daily_flagged_df['GrossConsumptionMWh'] = np.where(consumption_daily_flagged_df['flagged'] == 1, 0, consumption_daily_flagged_df['GrossConsumptionMWh'])
 # Show the first few rows of the daily aggregated DataFrame
 print("\nFlagged energy data:")
 print(consumption_daily_flagged_df)
@@ -454,9 +501,9 @@ print(consumption_daily_flagged_df)
     6721 2023-05-28         80406.440116
     6722 2023-05-29         82766.586296
     6723 2023-05-30         89449.965396
-
+    
     [6724 rows x 2 columns]
-
+    
     Flagged energy data:
              HourDK  GrossConsumptionMWh  flagged
     0    2005-01-01         84760.194094        0
@@ -470,9 +517,9 @@ print(consumption_daily_flagged_df)
     6721 2023-05-28         80406.440116        0
     6722 2023-05-29         82766.586296        0
     6723 2023-05-30         89449.965396        0
-
+    
     [6724 rows x 3 columns]
-
+    
 
 Now that the energy data has been prepared for integration into a combined dataset, let's now prepare the weather forecast data.
 
@@ -483,7 +530,7 @@ Now that the energy data has been prepared for integration into a combined datas
 
 ```python
 # Load the weather forecast dataset
-weather_filepath = '/Data/Weather forecasts/combined_forecasts_2005-2023.csv'
+weather_filepath = 'C:/Users/madsh/OneDrive/Dokumenter/kandidat/Fællesmappe/Speciale/Forecasting-energy-consumption-in-Denmark/Data/Weather forecasts/combined_forecasts_2005-2023.csv'
 weather_df = pd.read_csv(weather_filepath)
 
 # Display the weather forecast DataFrame
@@ -491,8 +538,8 @@ print("Weather Forecast Data:")
 display(weather_df.head())
 ```
 
-Weather Forecast Data:
-
+    Weather Forecast Data:
+    
 
 
 <div>
@@ -748,7 +795,7 @@ Now that we have prepared the weather forecasting data, we can combine the two d
 
 ```python
 # Merge the daily aggregated electricity consumption data with the daily aggregated weather data
-combined_daily_interpolation_df = pd.merge(consumption_daily_df, weather_daily_with_step_df,
+combined_daily_interpolation_df = pd.merge(combined_daily_interpolation_df, weather_daily_with_step_df, 
                              left_on='HourDK', right_on='valid_time', how='inner')
 
 # Drop the redundant 'valid_time' column
@@ -759,7 +806,7 @@ print("Interpolated combined data:")
 display(combined_daily_interpolation_df.head())
 
 # Merge the daily aggregated electricity consumption data with the daily aggregated weather data
-combined_daily_flagged_df = pd.merge(consumption_daily_flagged_df, weather_daily_with_step_df,
+combined_daily_flagged_df = pd.merge(consumption_daily_flagged_df, weather_daily_with_step_df, 
                              left_on='HourDK', right_on='valid_time', how='inner')
 
 # Drop the redundant 'valid_time' column
@@ -770,8 +817,8 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-Interpolated combined data:
-
+    Interpolated combined data:
+    
 
 
 <div>
@@ -839,9 +886,9 @@ Interpolated combined data:
 </div>
 
 
-
-Flagged combined data:
-
+    
+    Flagged combined data:
+    
 
 
 <div>
@@ -944,8 +991,8 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-Interpolated combined data:
-
+    Interpolated combined data:
+    
 
 
 <div>
@@ -1025,9 +1072,9 @@ Interpolated combined data:
 </div>
 
 
-
-Flagged combined data:
-
+    
+    Flagged combined data:
+    
 
 
 <div>
@@ -1137,8 +1184,8 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-Interpolated combined data:
-
+    Interpolated combined data:
+    
 
 
 <div>
@@ -1224,9 +1271,9 @@ Interpolated combined data:
 </div>
 
 
-
-Flagged combined data:
-
+    
+    Flagged combined data:
+    
 
 
 <div>
@@ -1318,7 +1365,7 @@ Flagged combined data:
 </div>
 
 
-Now we are extremely close to have a final dataset. but there are a couple of steps left before we can save these dataframes as csv files and go nuts with putting the data into machine learning models.
+Now we are extremely close to have a final dataset. but there are a couple of steps left before we can save these dataframes as csv files and go nuts with putting the data into machine learning models. 
 
 First When working with machine learning models for forecasting, using dummy variables instead of categorical variables can offer several advantages. Here's why:
 
@@ -1375,8 +1422,8 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.head())
 ```
 
-Interpolated combined data:
-
+    Interpolated combined data:
+    
 
 
 <div>
@@ -1547,9 +1594,9 @@ Interpolated combined data:
 </div>
 
 
-
-Flagged combined data:
-
+    
+    Flagged combined data:
+    
 
 
 <div>
@@ -1736,8 +1783,8 @@ print("\nFlagged combined data:")
 display(combined_daily_flagged_df.tail())
 ```
 
-Interpolated combined data:
-
+    Interpolated combined data:
+    
 
 
 <div>
@@ -1908,9 +1955,9 @@ Interpolated combined data:
 </div>
 
 
-
-Flagged combined data:
-
+    
+    Flagged combined data:
+    
 
 
 <div>
@@ -2090,4 +2137,9 @@ combined_daily_interpolation_df.to_csv('combined_daily_interpolation.csv', index
 
 # Export combined_daily_flagged_df to a CSV file
 combined_daily_flagged_df.to_csv('combined_daily_flagged.csv', index=False)
+```
+
+
+```python
+
 ```
