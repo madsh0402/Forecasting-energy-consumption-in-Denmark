@@ -935,15 +935,13 @@ Understanding these coefficients can help policymakers and energy companies make
 
 For the flagged data, we have to make some customizations. The "flagged" variable indicates where the consumption values are missing. Therefore, we need the model to predict 0 every time the flagged value is 1. By doing this, we are only predicting actual values and, hopefully, reducing the amount of noise compared to using interpolation. making the estimation equation:
 
-$$
-\begin{equation}
+$$\begin{equation}
 \hat y = 
 \begin{cases} 
-0 & \text{if \beta_{flagged} = 1} \\
+0 & \text{if } \beta_{\mathrm{flagged}} = 1 \\
 \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x_n & \text{otherwise} 
 \end{cases}
-\end{equation}
-$$
+\end{equation}$$
 
 
 ```python
