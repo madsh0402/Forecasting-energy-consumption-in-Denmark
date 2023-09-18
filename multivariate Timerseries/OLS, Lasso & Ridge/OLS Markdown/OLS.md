@@ -21,10 +21,10 @@ $$ \hat y = \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x
 
 Where:
 
-* $\hat y$ is the predicted outcome,
-* $\beta_0$ is the y-intercept,
-* $\beta_1, \beta_2,\dots,\beta_n$ are the model coefficients,
-* $x_1, x_2,\dots,x_n$ are the feature values.
+* \$\hat y\$ is the predicted outcome,
+* &#36;\beta_0&#36; is the y-intercept,
+* $ \beta_1, \beta_2,\dots,\beta_n $ are the model coefficients,
+* <span>$x_1, x_2,\dots,x_n$</span> are the feature values.
 
 ### Optimization in OLS
 The objective of OLS is to minimize the sum of the squared differences between observed and predicted values. This is known as the "least squares" criterion. The optimization formula to find the best-fitting line $\hat y$ is:
