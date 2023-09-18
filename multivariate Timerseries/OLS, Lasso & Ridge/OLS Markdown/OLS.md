@@ -31,7 +31,7 @@ Where:
 * \\( x_1, x_2,\dots,x_n \\) are the feature values.
 
 ### Optimization in OLS
-The objective of OLS is to minimize the sum of the squared differences between observed and predicted values. This is known as the "least squares" criterion. The optimization formula to find the best-fitting line \\( hat y \\) is:
+The objective of OLS is to minimize the sum of the squared differences between observed and predicted values. This is known as the "least squares" criterion. The optimization formula to find the best-fitting line \\( \hat y \\) is:
 
 $$ \min_{\beta_1, \beta_2,\dots,\beta_n}\sum_{i=1}^{N}{(y_i-\hat y_i)^2} $$
 
