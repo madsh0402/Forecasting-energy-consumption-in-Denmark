@@ -1,15 +1,3 @@
-<script type="text/x-mathjax-config">
-  MathJax = {
-    tex: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      displayMath: [['$$','$$'], ['\\[','\\]']]
-    }
-  };
-</script>
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 # Ordinary Least Squares
 
 In statistics and machine learning, Ordinary Least Squares (OLS) is a type of linear least squares method used for solving unknown parameters in linear regression models. The goal is to find the best-fitting straight line through a set of points.
