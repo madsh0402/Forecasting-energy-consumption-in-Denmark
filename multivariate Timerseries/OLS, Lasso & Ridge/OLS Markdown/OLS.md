@@ -14,6 +14,7 @@
   </script>
 </div>
 
+
 # Ordinary Least Squares
 
 In statistics and machine learning, Ordinary Least Squares (OLS) is a type of linear least squares method used for solving unknown parameters in linear regression models. The goal is to find the best-fitting straight line through a set of points.
