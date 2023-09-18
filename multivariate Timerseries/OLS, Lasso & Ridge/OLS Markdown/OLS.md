@@ -41,7 +41,7 @@ where:
 * \\( y_i \\) are the predicted values, 
 * \\( N \\) is the numbere of observations
 
-By solving this optimization problem, we obtain the OLS estimates of the model parameters \\( beta_1, \beta_2,\dots,\beta_n \\).
+By solving this optimization problem, we obtain the OLS estimates of the model parameters \\( \beta_1, \beta_2,\dots,\beta_n \\).
 
 ### Libraries
 
