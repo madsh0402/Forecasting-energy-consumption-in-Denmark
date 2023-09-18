@@ -861,12 +861,12 @@ print(f" MSE = {mse}\n MSE = {mse}\nRMSE = {rmse}\n  r2 = {r2}")
       r2 = 0.7661488941840506
     
 
-\begin{align*}
+$$\begin{align*}
 \text{MSE}  &= 25,927,663.25 \\
 \text{RMSE} &= 5091.92 \\
 \text{MAE}  &= 4011.59 \\
 R^2         &= 0.766
-\end{align*}
+\end{align*}$$
 
 1. MSE & RMSE: The MSE and RMSE values are measures of the average of the squares of the errors or deviations. In our case, the MSE is approximately \\( 25.9 \\) million, and the RMSE is approximately \\( 5092 \\). These values give us an idea of how much the predicted Gross Consumption deviates, on average, from the actual Gross Consumption in the dataset.
 
@@ -1038,12 +1038,12 @@ print(f" MSE = {mse}\nRMSE = {rmse}\n MAE = {mae}\n  r2 = {r2}")
 
 After applying the Ordinary Least Squares (OLS) regression model to the flagged dataset, we obtained the following performance metrics:
 
-\begin{align*}
+$$\begin{align*}
 \text{MSE}  &= 22,500,16.75 \\
 \text{RMSE} &= 4743.46 \\
 \text{MAE}  &= 3804.09 \\
 R^2         &= 0.889
-\end{align*}
+\end{align*}$$
 
 #### Interpretation and Comparison with Interpolated Dataset:
 1. **MSE & RMSE**: The MSE and RMSE values for the flagged dataset are lower than those for the interpolated dataset (22,500,16.75 and 4743.46, respectively). This suggests that the model fits the flagged data slightly better.
