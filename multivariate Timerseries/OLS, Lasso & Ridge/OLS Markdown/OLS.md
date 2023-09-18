@@ -939,7 +939,7 @@ For the flagged data, we have to make some customizations. The "flagged" variabl
 $$\begin{equation}
 \hat y = 
 \begin{cases} 
-0 & \text{if } X_{\mathrm{i flagged}} = 1 \\
+0 & \text{if } X_{i \mathrm{flagged}} = 1 \\
 \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x_n & \text{otherwise} 
 \end{cases}
 \end{equation}$$
