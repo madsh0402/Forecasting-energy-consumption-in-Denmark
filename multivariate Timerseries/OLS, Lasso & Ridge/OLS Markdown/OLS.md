@@ -1,4 +1,3 @@
-            <!-- Add MathJax Script -->
 <script type="text/x-mathjax-config">
 MathJax = {
 tex: {
