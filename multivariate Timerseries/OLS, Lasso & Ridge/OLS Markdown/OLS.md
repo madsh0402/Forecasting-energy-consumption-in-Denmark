@@ -939,7 +939,7 @@ $$
 \begin{equation}
 \hat y = 
 \begin{cases} 
-0 & \text{if flagged = 1} \\
+0 & \text{if \beta_{flagged} = 1} \\
 \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x_n & \text{otherwise} 
 \end{cases}
 \end{equation}
