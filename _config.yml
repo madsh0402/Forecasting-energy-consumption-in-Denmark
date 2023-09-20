@@ -33,6 +33,7 @@ navbar-links:
     - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS Markdown/OLS"
     - Lasso: "404"
     - Ridge: "404"
+    - Random Forrest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
   Authors: "404"
