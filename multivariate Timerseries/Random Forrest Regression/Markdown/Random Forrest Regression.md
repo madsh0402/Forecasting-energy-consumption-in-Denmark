@@ -507,8 +507,3 @@ R^2         &= 0.897
 \end{align*}$$
 
 In the task of predicting energy consumption, Random Forest Regression (RFR) consistently outperforms the Ordinary Least Squares (OLS) method across key evaluation metrics. Specifically, RFR exhibits lower values for both Mean Squared Error (MSE) and Root Mean Squared Error (RMSE), signifying more accurate predictions with smaller errors. Additionally, the model's Mean Absolute Error (MAE) is lower, further suggesting that its predictions are, on average, closer to the actual observations. The Coefficient of Determination \\( (R^2) \\) is also marginally higher for RFR, indicating a slightly better explanation of the variability in the dataset. Taking all these factors into account, while both models offer strong predictive capabilities, RFR proves to be more accurate and reliable for this specific application. Therefore, Random Forest Regression stands out as the more suitable model for predicting energy consumption in this context.
-
-
-```python
-
-```
