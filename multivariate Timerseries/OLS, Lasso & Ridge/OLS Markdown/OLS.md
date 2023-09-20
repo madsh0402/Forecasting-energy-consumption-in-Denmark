@@ -1,3 +1,19 @@
+---
+---
+<div>
+  <script type="text/x-mathjax-config">
+    MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</div>
+
 # Ordinary Least Squares
 
 In statistics and machine learning, Ordinary Least Squares (OLS) is a type of linear least squares method used for solving unknown parameters in linear regression models. The goal is to find the best-fitting straight line through a set of points.
@@ -9,23 +25,23 @@ $$ \hat y = \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x
 
 Where:
 
-* $\hat y$ is the predicted outcome,
-* $\beta_0$ is the y-intercept,
-* $\beta_1, \beta_2,\dots,\beta_n$ are the model coefficients,
-* $x_1, x_2,\dots,x_n$ are the feature values.
+* \\( \hat y \\) is the predicted outcome,
+* \\( \beta_0 \\) is the y-intercept,
+* \\( \beta_1, \beta_2,\dots,\beta_n \\) are the model coefficients,
+* \\( x_1, x_2,\dots,x_n \\) are the feature values.
 
 ### Optimization in OLS
-The objective of OLS is to minimize the sum of the squared differences between observed and predicted values. This is known as the "least squares" criterion. The optimization formula to find the best-fitting line $\hat y$ is:
+The objective of OLS is to minimize the sum of the squared differences between observed and predicted values. This is known as the "least squares" criterion. The optimization formula to find the best-fitting line \\( \hat y \\) is:
 
 $$ \min_{\beta_1, \beta_2,\dots,\beta_n}\sum_{i=1}^{N}{(y_i-\hat y_i)^2} $$
 
 where:
 
-* $y_i$ are the observed values (from the training set),
-* $y_i$ are the predicted values, 
-* $N$ is the numbere of observations
+* \\( y_i \\) are the observed values (from the training set),
+* \\( y_i \\) are the predicted values, 
+* \\( N \\) is the numbere of observations
 
-By solving this optimization problem, we obtain the OLS estimates of the model parameters $\beta_1, \beta_2,\dots,\beta_n$.
+By solving this optimization problem, we obtain the OLS estimates of the model parameters \\( \beta_1, \beta_2,\dots,\beta_n \\).
 
 ### Libraries
 
@@ -772,7 +788,7 @@ display(test_set)
 
 To build the Ordinary Least Squares (OLS) model, we'll proceed with the following steps:
 
-1. Define the feature variables $(X)$ and the target variable $(y)$ for both the training and test sets.
+1. Define the feature variables \\( (X) \\) and the target variable \\( (y) \\) for both the training and test sets.
 2. Fit the OLS model to the training set.
 3. Evaluate the model's performance on the test set using appropriate metrics.
 
@@ -845,16 +861,16 @@ print(f" MSE = {mse}\n MSE = {mse}\nRMSE = {rmse}\n  r2 = {r2}")
       r2 = 0.7661488941840506
     
 
-\begin{align*}
+$$\begin{align*}
 \text{MSE}  &= 25,927,663.25 \\
 \text{RMSE} &= 5091.92 \\
 \text{MAE}  &= 4011.59 \\
 R^2         &= 0.766
-\end{align*}
+\end{align*}$$
 
-1. MSE & RMSE: The MSE and RMSE values are measures of the average of the squares of the errors or deviations. In our case, the MSE is approximately $25.9$ million, and the RMSE is approximately $5092$. These values give us an idea of how much the predicted Gross Consumption deviates, on average, from the actual Gross Consumption in the dataset.
+1. MSE & RMSE: The MSE and RMSE values are measures of the average of the squares of the errors or deviations. In our case, the MSE is approximately \\( 25.9 \\) million, and the RMSE is approximately \\( 5092 \\). These values give us an idea of how much the predicted Gross Consumption deviates, on average, from the actual Gross Consumption in the dataset.
 
-2. R-squared: The $R^2$ value is a statistical measure of the proportion of the variance for the dependent variable that's explained by the independent variables in the model. An $R^2$ value of $0.7661$ indicates that approximately 76.61% of the variability in Gross Consumption can be explained by our model. This suggests that the model has a relatively strong fit to the data.
+2. R-squared: The \\( R^2 \\) value is a statistical measure of the proportion of the variance for the dependent variable that's explained by the independent variables in the model. An \\( R^2 \\) value of \\( 0.7661 \\) indicates that approximately 76.61% of the variability in Gross Consumption can be explained by our model. This suggests that the model has a relatively strong fit to the data.
 
 In summary, the OLS regression model provides a decent fit to the interpolated dataset, explaining over 76% of the variance in Gross Consumption. However, there is room for improvement, as indicated by the MSE and RMSE values. Future work could involve feature engineering, using more complex models, or gathering more data to improve the model's performance.
 
@@ -919,15 +935,13 @@ Understanding these coefficients can help policymakers and energy companies make
 
 For the flagged data, we have to make some customizations. The "flagged" variable indicates where the consumption values are missing. Therefore, we need the model to predict 0 every time the flagged value is 1. By doing this, we are only predicting actual values and, hopefully, reducing the amount of noise compared to using interpolation. making the estimation equation:
 
-$$
-\begin{equation}
+$$\begin{equation}
 \hat y = 
 \begin{cases} 
-0 & \text{if flagged = 1} \\
+0 & \text{if } X_{i \mathrm{flagged}} = 1 \\
 \beta_0+\beta_1\cdot x_1 + \beta_2\cdot x_2 + \dots + \beta_n\cdot x_n & \text{otherwise} 
 \end{cases}
-\end{equation}
-$$
+\end{equation}$$
 
 
 ```python
@@ -1022,17 +1036,17 @@ print(f" MSE = {mse}\nRMSE = {rmse}\n MAE = {mae}\n  r2 = {r2}")
 
 After applying the Ordinary Least Squares (OLS) regression model to the flagged dataset, we obtained the following performance metrics:
 
-\begin{align*}
+$$\begin{align*}
 \text{MSE}  &= 22,500,16.75 \\
 \text{RMSE} &= 4743.46 \\
 \text{MAE}  &= 3804.09 \\
 R^2         &= 0.889
-\end{align*}
+\end{align*}$$
 
 #### Interpretation and Comparison with Interpolated Dataset:
 1. **MSE & RMSE**: The MSE and RMSE values for the flagged dataset are lower than those for the interpolated dataset (22,500,16.75 and 4743.46, respectively). This suggests that the model fits the flagged data slightly better.
 2. **MAE**: The Mean Absolute Error for the flagged dataset is 3804.09, which is not directly comparable to the interpolated dataset as MAE was not provided for it. However, it gives us an idea of the average absolute error in the model.
-3. R-squared: The $R^2$ value for the flagged dataset is 0.8894, which is higher than the 0.7661 for the interpolated dataset. This indicates that the model explains approximately 88.94% of the variance in Gross Consumption for the flagged dataset, as opposed to 76.61% for the interpolated dataset.
+3. R-squared: The \\( R^2 \\) value for the flagged dataset is 0.8894, which is higher than the 0.7661 for the interpolated dataset. This indicates that the model explains approximately 88.94% of the variance in Gross Consumption for the flagged dataset, as opposed to 76.61% for the interpolated dataset.
 
 #### Summary:
 Both models perform well, but the model trained on the flagged dataset shows better fit and predictive power. This could be because the flagged data might be cleaner or more consistent (the interpolation might add signifikant noise to the data) thereby leading to better model performance.
@@ -1089,8 +1103,3 @@ When we look at the coefficients for the flagged dataset, some key differences a
 * The temperature and step days have minimal effects in both models, suggesting that these variables are not the primary drivers for changes in electricity consumption.
 #### Summary:
 The coefficients in the flagged dataset provide a nuanced understanding of electricity consumption patterns, accounting for missing data. Both the flagged and interpolated datasets offer similar insights into how holidays, weekdays, and months impact electricity consumption. The flagged dataset goes a step further by accounting for missing values, making it a more comprehensive model for understanding energy consumption patterns.
-
-
-```python
-
-```

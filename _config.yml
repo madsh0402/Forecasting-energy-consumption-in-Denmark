@@ -276,6 +276,7 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      ext-js: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js"
   -
     scope:
       path: "" # any file that's not a post will be a "page" layout by default
