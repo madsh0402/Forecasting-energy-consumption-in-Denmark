@@ -1,3 +1,18 @@
+---
+---
+<div>
+  <script type="text/x-mathjax-config">
+    MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</div>
 # Random Forest Regression
 
 Random Forest is an ensemble learning method that can be used for both classification and regression tasks. It builds multiple decision trees during training and merges them together to get more accurate and stable predictions. Random Forest adds an extra layer of randomness to bagging; not only are the training sets built by randomly sampling the original dataset, but a subset of features are also selected randomly, making each tree in the forest somewhat different.
