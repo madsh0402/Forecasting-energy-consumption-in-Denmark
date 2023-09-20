@@ -491,6 +491,7 @@ By comparing the two, we can better understand the robustness and sensitivities 
 
 ###### metrics:
 **Ordinary Least Square model**:
+
 $$\begin{align*}
 \text{MSE}  &= 22,500,416.75 \\
 \text{RMSE} &= 4743.46 \\
@@ -499,6 +500,7 @@ R^2         &= 0.889
 \end{align*}$$
 
 **Random Forrest Regression model**:
+
 $$\begin{align*}
 \text{MSE}  &= 20,954,772.05\\
 \text{RMSE} &= 4577.64 \\
