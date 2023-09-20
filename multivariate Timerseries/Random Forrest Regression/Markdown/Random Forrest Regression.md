@@ -200,11 +200,6 @@ best_params
 ```
 
     Fitting 3 folds for each of 144 candidates, totalling 432 fits
-
-
-
-
-
     {'max_depth': 10,
      'min_samples_leaf': 1,
      'min_samples_split': 40,
