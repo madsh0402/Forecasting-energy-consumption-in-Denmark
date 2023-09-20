@@ -1037,7 +1037,7 @@ print(f" MSE = {mse}\nRMSE = {rmse}\n MAE = {mae}\n  r2 = {r2}")
 After applying the Ordinary Least Squares (OLS) regression model to the flagged dataset, we obtained the following performance metrics:
 
 $$\begin{align*}
-\text{MSE}  &= 22,500,16.75 \\
+\text{MSE}  &= 22,500,416.75 \\
 \text{RMSE} &= 4743.46 \\
 \text{MAE}  &= 3804.09 \\
 R^2         &= 0.889
