@@ -1,3 +1,19 @@
+---
+---
+<div>
+  <script type="text/x-mathjax-config">
+    MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</div>
+
 # Random Forest Regression
 
 Random Forest is an ensemble learning method that can be used for both classification and regression tasks. It builds multiple decision trees during training and merges them together to get more accurate and stable predictions. Random Forest adds an extra layer of randomness to bagging; not only are the training sets built by randomly sampling the original dataset, but a subset of features are also selected randomly, making each tree in the forest somewhat different.
@@ -9,9 +25,9 @@ Why Random Forest for Regression?
 4. **Scalability**: Efficient algorithms make it fast, even for large datasets.
 
 ### Theoretical Background
-A Random Forest consists of \( N \) decision trees, \( T_1, T_2, \ldots, T_N \). Each tree \( T_i \) is trained on a random subset of the data \( D_i \), sampled with replacement from the original dataset \( D \). For regression tasks, the average output of all trees is considered as the final prediction.
+A Random Forest consists of \\( N \) decision trees, \\( T_1, T_2, \ldots, T_N \\). Each tree \\( T_i \\) is trained on a random subset of the data \\( D_i \\), sampled with replacement from the original dataset \\( D \\). For regression tasks, the average output of all trees is considered as the final prediction.
 
-The prediction \( \hat{y} \) for a given input \( x \) is:
+The prediction \\( \hat{y} \\) for a given input \\( x \\) is:
 
 $$ \hat{y} = \frac{1}{N} \sum_{i=1}^{N} T_i(x) $$
 
@@ -19,10 +35,10 @@ The optimization typically involves minimizing a loss function. For regression t
 
 $$ \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 $$
 
-where \( y_i \) is the actual value and \( \hat{y}_i \) is the predicted value for the \( i^{th} \) observation.
+where \\( y_i \\) is the actual value and \\( \hat{y}_i \\) is the predicted value for the \\( i^{th} \\) observation.
 
 #### Tuning Parameters
-* **Number of Trees \( N \) **
+* **Number of Trees \\( N \\)**
 * **Maximum Depth of Trees**
 * **Minimum Samples to Split**
 * **Minimum Samples per Leaf**
@@ -56,10 +72,10 @@ warnings.filterwarnings('ignore')
 # Custom prediction function
 def custom_predict(X, model):
     y_pred = model.predict(X)
-    
+
     # Apply the flagged logic
     y_custom_pred = np.where(X['flagged'] == 1, 0, y_pred)
-    
+
     return y_custom_pred
 
 # Calculate performance metrics function
@@ -68,7 +84,7 @@ def metrics(y_test, y_pred):
     rmse = mean_squared_error(y_test, y_pred, squared=False)
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
-    
+
     print(f" MSE = {mse}\nRMSE = {rmse}\n MAE = {mae}\n  r2 = {r2}")
 ```
 
@@ -131,7 +147,7 @@ metrics(y_test,y_pred)
     RMSE = 4943.8035686398125
      MAE = 3879.0481242381516
       r2 = 0.8793678790967633
-    
+
 
 #### Plot the results
 
@@ -154,9 +170,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_17_0.png)
-    
+
 
 
 #### Hyper Optimazation
@@ -172,7 +188,7 @@ param_grid = {
 }
 
 # Create the grid search with 3-fold cross validation
-rf_grid_search = GridSearchCV(estimator=rf_regressor, param_grid=param_grid, 
+rf_grid_search = GridSearchCV(estimator=rf_regressor, param_grid=param_grid,
                               cv=3, n_jobs=-1, verbose=2)
 
 # Fit the grid search to the data
@@ -184,7 +200,7 @@ best_params
 ```
 
     Fitting 3 folds for each of 144 candidates, totalling 432 fits
-    
+
 
 
 
@@ -230,13 +246,13 @@ metrics(y_test, y_pred_optimized)
     RMSE = 4943.8035686398125
      MAE = 3879.0481242381516
       r2 = 0.8793678790967633
-    
+
     After Hyperparameter optimazation:
      MSE = 20954772.05253128
     RMSE = 4577.638261432557
      MAE = 3614.3962354249165
       r2 = 0.896575485463113
-    
+
 
 #### Zoomed-in plot of predictions after optimization
 
@@ -260,9 +276,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_25_0.png)
-    
+
 
 
 
@@ -295,9 +311,9 @@ display(feature_importance_df)
 ```
 
 
-    
+
 ![png](output_26_0.png)
-    
+
 
 
 
@@ -494,7 +510,7 @@ $$\begin{align*}
 R^2         &= 0.897
 \end{align*}$$
 
-In the task of predicting energy consumption, Random Forest Regression (RFR) consistently outperforms the Ordinary Least Squares (OLS) method across key evaluation metrics. Specifically, RFR exhibits lower values for both Mean Squared Error (MSE) and Root Mean Squared Error (RMSE), signifying more accurate predictions with smaller errors. Additionally, the model's Mean Absolute Error (MAE) is lower, further suggesting that its predictions are, on average, closer to the actual observations. The Coefficient of Determination ( \(R^2 \) ) is also marginally higher for RFR, indicating a slightly better explanation of the variability in the dataset. Taking all these factors into account, while both models offer strong predictive capabilities, RFR proves to be more accurate and reliable for this specific application. Therefore, Random Forest Regression stands out as the more suitable model for predicting energy consumption in this context.
+In the task of predicting energy consumption, Random Forest Regression (RFR) consistently outperforms the Ordinary Least Squares (OLS) method across key evaluation metrics. Specifically, RFR exhibits lower values for both Mean Squared Error (MSE) and Root Mean Squared Error (RMSE), signifying more accurate predictions with smaller errors. Additionally, the model's Mean Absolute Error (MAE) is lower, further suggesting that its predictions are, on average, closer to the actual observations. The Coefficient of Determination ( \\(R^2 \\) ) is also marginally higher for RFR, indicating a slightly better explanation of the variability in the dataset. Taking all these factors into account, while both models offer strong predictive capabilities, RFR proves to be more accurate and reliable for this specific application. Therefore, Random Forest Regression stands out as the more suitable model for predicting energy consumption in this context.
 
 
 ```python
