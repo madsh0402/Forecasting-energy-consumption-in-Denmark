@@ -479,6 +479,7 @@ When examining the feature importances from the Random Forest Regression (RFR) a
     * RFR: Months like Month_April and Month_November have lower importance scores.
     * OLS: Coefficients for months vary but are generally smaller in magnitude.
     * Analysis: Both models suggest that months have some impact, but the influence is less consistent and not the primary       driver for changes in electricity consumption.
+
 ####  Comparisons:
 The `flagged` variable is a significant addition in both models, but its high negative value in OLS is particularly noteworthy.
 RFR gives higher importance to `temperature`, whereas OLS suggests its impact is minimal.
