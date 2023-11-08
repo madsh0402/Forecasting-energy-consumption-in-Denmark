@@ -38,7 +38,7 @@ $$ \min_{\beta_1, \beta_2,\dots,\beta_n}\sum_{i=1}^{N}{(y_i-\hat y_i)^2} $$
 where:
 
 * \\( y_i \\) are the observed values (from the training set),
-* \\( y_i \\) are the predicted values, 
+* \\( \hat y_i \\) are the predicted values, 
 * \\( N \\) is the numbere of observations
 
 By solving this optimization problem, we obtain the OLS estimates of the model parameters \\( \beta_1, \beta_2,\dots,\beta_n \\).
