@@ -25,15 +25,13 @@ navbar-links:
     - Weather observatioos: "/Data/Weather observations/Tempature data"
     - Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
     - Combine the Data: "/Data/Combined data/Combining the data"
-  univariate timeseries:
-    - Autoregression: "404"
-    - Convolutional Neural Network: "404"
-    - Rekurrent Neural Network/Long-Short term memory: "404"
-  Multivariate timeseries:
+  Machine learning:
     - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS Markdown/OLS"
-    - Lasso: "404"
-    - Ridge: "404"
     - Random Forrest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
+    - Boosting: "404"
+    - Autoregression: "404"
+  Deep learning:
+    - Neural Network: "404"
     - Convolutional Neural Network: "404"
     - Rekurrent Neural Network/Long-Short term memory: "404"
   Authors: "404"
