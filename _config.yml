@@ -38,7 +38,7 @@ navbar-links:
     - Tree-based models & Random Forest: "404"
     - Diabold-Mariano test: "404"
 
-  EDA           :
+  Data Analysis:
     - Statistical insights of numerical variables: "404"
     - Correlation analysis: "404"
     - Decomposition of energy consumption: "404"
