@@ -20,20 +20,37 @@ author: Mads Hansen And Victor Gustavsen
 ###############################################
 #Data\Weather forecasts\Markdown\Historical forecasts data
 navbar-links:
-  Data (Energy & weather): 
-    - Energy: "/Data/Energy/Markdown/Energy Data"
-    - Weather observatioos: "/Data/Weather observations/Tempature data"
-    - Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
-    - Combine the Data: "/Data/Combined data/Combining the data"
-  Machine learning:
-    - OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS Markdown/OLS"
-    - Random Forrest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
-    - Boosting: "404"
-    - Autoregression: "404"
-  Deep learning:
-    - Neural Network: "404"
-    - Convolutional Neural Network: "404"
-    - Rekurrent Neural Network/Long-Short term memory: "404"
+  Old reseach: 
+    - Data Energy: "/Data/Energy/Markdown/Energy Data"
+    - Data Weather observatioos: "/Data/Weather observations/Tempature data"
+    - Data Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
+    - Data Combine the Data: "/Data/Combined data/Combining the data"
+    - ML OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS Markdown/OLS"
+    - ML Random Forrest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
+    - ML Boosting: "404"
+  Intro & theory:
+    - Intro: "404"
+    - Time series decomposition:
+    - Rolling window:
+    - Bias Variance trade-off:
+    - Hyperparameter tuning:
+    - Ordinary Least Squares:
+    - Tree-based models & Random Forest:
+    - Diabold-Mariano test:
+
+  EDA:
+    - Statistical insights of numerical variables:
+    - Correlation analysis:
+    - Decomposition of energy consumption:
+
+  Forecasting:
+    - Remainder Framework:
+    - Remainder Data preperation:
+    - Remainder Rolling window approach:
+    - Remainder Random Forest:
+    - Remainder Evalutation of best models:
+    - Real time forecasting:
+
   Authors: "404"
 
 ################
@@ -60,7 +77,7 @@ navbar-links:
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "maha19aw@student.cbs.dk"
+  email: "Madsh0402@gmail.com"
 #  facebook: deanattali
 #  github: daattali
 #  twitter: daattali
