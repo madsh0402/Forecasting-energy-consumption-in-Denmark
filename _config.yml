@@ -30,26 +30,26 @@ navbar-links:
     - ML Boosting: "404"
   Intro & theory:
     - Intro: "404"
-    - Time series decomposition:
-    - Rolling window:
-    - Bias Variance trade-off:
-    - Hyperparameter tuning:
-    - Ordinary Least Squares:
-    - Tree-based models & Random Forest:
-    - Diabold-Mariano test:
+    - Time series decomposition: "404"
+    - Rolling window: "404"
+    - Bias Variance trade-off: "404"
+    - Hyperparameter tuning: "404"
+    - Ordinary Least Squares: "404"
+    - Tree-based models & Random Forest: "404"
+    - Diabold-Mariano test: "404"
 
   EDA:
-    - Statistical insights of numerical variables:
-    - Correlation analysis:
-    - Decomposition of energy consumption:
+    - Statistical insights of numerical variables: "404"
+    - Correlation analysis: "404"
+    - Decomposition of energy consumption: "404"
 
   Forecasting:
-    - Remainder Framework:
-    - Remainder Data preperation:
-    - Remainder Rolling window approach:
-    - Remainder Random Forest:
-    - Remainder Evalutation of best models:
-    - Real time forecasting:
+    - Remainder Framework: "404"
+    - Remainder Data preperation: "404"
+    - Remainder Rolling window approach: "404"
+    - Remainder Random Forest: "404"
+    - Remainder Evalutation of best models: "404"
+    - Real time forecasting: "404"
 
   Authors: "404"
 
