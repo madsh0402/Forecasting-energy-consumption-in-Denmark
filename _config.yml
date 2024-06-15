@@ -21,12 +21,12 @@ author: Mads Hansen And Victor Gustavsen
 #Data\Weather forecasts\Markdown\Historical forecasts data
 navbar-links:
   Old reseach: 
-    - Data Energy: "/Data/Energy/Markdown/Energy Data"
-    - Data Weather observatioos: "/Data/Weather observations/Tempature data"
-    - Data Weather forecasts: "/Data/Weather forecasts/Markdown/Historical forecasts data"
-    - Data Combine the Data: "/Data/Combined data/Combining the data"
+    - Data Energy: "/Website content files/Old Research/Energy/Energy Data"
+    - Data Weather observatioos: "/Website content files/Old Research/Weather observations/Energy Data"
+    - Data Weather forecasts: "/Website content files/Old Research/Forecast/Historical forecasts data"
+    - Data Combine the Data: "/Website content files/Old Research/Merged dataset/Combining the data"
     - ML OLS: "/multivariate Timerseries/OLS, Lasso & Ridge/OLS Markdown/OLS"
-    - ML Random Forrest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
+    - ML Random Forest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
     - ML Boosting: "404"
   Intro & theory:
     - Intro: "404"
