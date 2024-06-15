@@ -26,7 +26,7 @@ navbar-links:
     - Data Weather forecasts: "/Website content files/Old Research/Forecast/Historical forecasts data"
     - Data Combine the Data: "/Website content files/Old Research/Merged dataset/Combining the data"
     - ML OLS: "/Website content files/Old Research/ML OLS/OLS"
-    - ML Random Forest: "/multivariate Timerseries/Random Forrest Regression/Markdown/Random Forrest Regression"
+    - ML Random Forest: "/Website content files/Old Research/ML Random Forest/Random Forrest Regression"
     - ML Boosting: "404"
   Intro & theory:
     - Intro: "404"
