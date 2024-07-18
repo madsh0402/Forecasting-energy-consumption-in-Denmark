@@ -10,10 +10,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+      - name: Debug information
+        run: |
+          echo "GITHUB_WORKSPACE: ${{ github.workspace }}"
+          ls -la ${{ github.workspace }}
 
       - name: Build the site in the jekyll/builder container
         run: |
@@ -21,4 +21,4 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           -e PAGES_REPO_NWO=${{ github.repository }} \
-          jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+          jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
